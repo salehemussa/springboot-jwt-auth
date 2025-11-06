@@ -58,7 +58,7 @@ jwt.expiration-ms=3600000
 
 ```json
 {
-  "username": "john",
+  "username": "saleh",
   "password": "123456"
 }
 ```
@@ -82,7 +82,7 @@ jwt.expiration-ms=3600000
 
 ```json
 {
-  "username": "john",
+  "username": "salehe",
   "password": "123456"
 }
 ```
@@ -92,7 +92,7 @@ jwt.expiration-ms=3600000
 ```json
 {
   "token": "<jwt-token>",
-  "username": "john",
+  "username": "salehe",
   "roles": ["ROLE_USER"]
 }
 ```
@@ -103,7 +103,7 @@ jwt.expiration-ms=3600000
 
 ```bash
 # 1. Clone the project
-git clone https://github.com/yourusername/springboot-jwt-auth.git
+git clone https://github.com/salehemussa/springboot-jwt-auth.git
 
 # 2. Navigate into the folder
 cd springboot-jwt-auth
@@ -117,7 +117,8 @@ mvn spring-boot:run
 ## 🧑‍💻 Author
 
 **Saleh Mussa**
-💼 Software Developer | ☁️ ICT Support | 💡 Java & Spring Boot Enthusiast
+💼 Software Developer | Microservives
+gdh  | 💡 Java & Spring Boot Enthusiast
 
 ---
 

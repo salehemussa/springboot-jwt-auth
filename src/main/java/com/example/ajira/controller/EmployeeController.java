@@ -1,51 +1,48 @@
 package com.example.ajira.controller;
 
 import com.example.ajira.model.Employee;
-import com.example.ajira.model.Role;
 import com.example.ajira.repository.EmployeeRepository;
-import lombok.RequiredArgsConstructor;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/employees")
-@RequiredArgsConstructor
+@RequestMapping("/api/employees")
 public class EmployeeController {
 
     private final EmployeeRepository employeeRepository;
 
-    // Only admin can create employee
-    @PostMapping
-    @PreAuthorize("hasAuthority('ADMIN')")
-    public Employee createEmployee(@RequestBody Employee employee) {
-        return employeeRepository.save(employee);
+    public EmployeeController(EmployeeRepository employeeRepository) {
+        this.employeeRepository = employeeRepository;
     }
 
-    // Admin and Manager can read all employees
+    // Accessible by both ADMIN and MANAGER
     @GetMapping
-    @PreAuthorize("hasAnyAuthority('ADMIN','MANAGER')")
+    @PreAuthorize("hasAnyRole('ADMIN', 'MANAGER')")
     public List<Employee> getAllEmployees() {
         return employeeRepository.findAll();
     }
 
-    // Admin can update
-    @PutMapping("/{id}")
-    @PreAuthorize("hasAuthority('ADMIN')")
-    public Employee updateEmployee(@PathVariable Long id, @RequestBody Employee emp) {
-        Employee employee = employeeRepository.findById(id).orElseThrow();
-        employee.setName(emp.getName());
-        employee.setPosition(emp.getPosition());
-        employee.setSalary(emp.getSalary());
+    // ADMIN only
+    @PostMapping
+    @PreAuthorize("hasRole('ADMIN')")
+    public Employee createEmployee(@RequestBody Employee employee) {
         return employeeRepository.save(employee);
     }
 
-    // Admin can delete
+    // ADMIN only
+    @PutMapping("/{id}")
+    @PreAuthorize("hasRole('ADMIN')")
+    public Employee updateEmployee(@PathVariable Long id, @RequestBody Employee employee) {
+        employee.setId(id);
+        return employeeRepository.save(employee);
+    }
+
+    // ADMIN only
     @DeleteMapping("/{id}")
-    @PreAuthorize("hasAuthority('ADMIN')")
-    public String deleteEmployee(@PathVariable Long id) {
+    @PreAuthorize("hasRole('ADMIN')")
+    public void deleteEmployee(@PathVariable Long id) {
         employeeRepository.deleteById(id);
-        return "Employee deleted";
     }
 }

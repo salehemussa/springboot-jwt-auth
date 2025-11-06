@@ -31,18 +31,23 @@ public class AuthController {
     @Autowired
     private PasswordEncoder passwordEncoder;
 
-    // ✅ Register endpoint
-    @PostMapping("/register")
-    public ResponseEntity<?> registerUser(@RequestBody User user) {
-        if (userRepository.findByUsername(user.getUsername()).isPresent()) {
-            return ResponseEntity.badRequest().body(Map.of("error", "Username already exists"));
-        }
-
-        user.setPassword(passwordEncoder.encode(user.getPassword()));
-        userRepository.save(user);
-
-        return ResponseEntity.ok(Map.of("message", "User registered successfully!"));
+ @PostMapping("/register")
+public ResponseEntity<?> registerUser(@RequestBody User user) {
+    if (userRepository.findByUsername(user.getUsername()).isPresent()) {
+        return ResponseEntity.badRequest().body(Map.of("error", "Username already exists"));
     }
+
+    user.setPassword(passwordEncoder.encode(user.getPassword()));
+
+    // You can choose role manually when registering or set default
+    if (user.getRole() == null || user.getRole().isEmpty()) {
+        user.setRole("MANAGER"); // Default to MANAGER
+    }
+
+    userRepository.save(user);
+    return ResponseEntity.ok(Map.of("message", "User registered successfully!"));
+}
+
 
     // ✅ Login endpoint
     @PostMapping("/login")
