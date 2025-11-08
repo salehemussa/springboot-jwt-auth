@@ -5,19 +5,19 @@ It includes user registration, login, and role-based access control — all back
 
 ---
 
-## 🚀 Features
+##  Features
 
-* ✅ User Registration & Login
-* 🔐 JWT Authentication (Access Token)
-* 👥 Role-Based Authorization (Admin, User)
-* 💾 MariaDB Database Integration
-* ⚙️ Spring Boot 3 + JPA + Hibernate
-* 🧩 Password Encryption (BCrypt)
-* 🧪 Ready for Postman Testing
+*  User Registration & Login
+*  JWT Authentication (Access Token)
+*  Role-Based Authorization (Admin, User)
+*  MariaDB Database Integration
+*  Spring Boot 3 + JPA + Hibernate
+*  Password Encryption (BCrypt)
+*  Ready for Postman Testing
 
 ---
 
-## 🛠️ Technologies
+##  Technologies
 
 | Technology            | Purpose                        |
 | --------------------- | ------------------------------ |
@@ -30,7 +30,7 @@ It includes user registration, login, and role-based access control — all back
 
 ---
 
-## ⚙️ Configuration
+##  Configuration
 
 Edit the `application.properties` file:
 
@@ -48,7 +48,7 @@ jwt.expiration-ms=3600000
 
 ---
 
-## 🧰 API Endpoints
+##  API Endpoints
 
 ### 🔹 Register User
 
@@ -99,7 +99,7 @@ jwt.expiration-ms=3600000
 
 ---
 
-## 🧾 How to Run
+##  How to Run
 
 ```bash
 # 1. Clone the project
@@ -114,14 +114,10 @@ mvn spring-boot:run
 
 ---
 
-## 🧑‍💻 Author
+## Author
 
 **Saleh Mussa**
-💼 Software Developer | Microservives
-gdh  | 💡 Java & Spring Boot Enthusiast
+💼 Software Developer | Microservices
+gdh  |  Java & Spring Boot Enthusiast
 
----
 
-## 📜 License
-
-This project is open-source and available under the [MIT License](LICENSE).
