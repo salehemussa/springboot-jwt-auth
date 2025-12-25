@@ -12,7 +12,7 @@ It includes user registration, login, and role-based access control — all back
 *  Role-Based Authorization (Admin, User)
 *  MariaDB Database Integration
 *  Spring Boot 3 + JPA + Hibernate
-*  Password Encryption (BCrypt)
+*  Password Encryption (BCrypt) 
 *  Ready for Postman Testing
 
 ---
